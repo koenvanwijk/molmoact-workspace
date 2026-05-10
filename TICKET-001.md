@@ -100,3 +100,33 @@ python scripts/generate.py \
 - Wait for checkpoint download
 - Test single-frame inference
 - Move to TICKET-002 (stereo depth pipeline)
+
+## ✅ COMPLETED (22:07 UTC+2)
+
+### Final Status
+- [x] PyTorch 2.11 installed
+- [x] MolmoAct package installed (skip decord, use imageio/opencv)
+- [x] Depth-Anything-V2 downloaded (1.3 GB)
+- [x] MolmoAct-7B-D-0812 downloaded (30.6 GB, 7 shards)
+- [x] Test scene captured (warmed-up frame after 15-frame warmup)
+
+### Deliverables
+**Checkpoints:**
+- `~/models/MolmoAct2/checkpoints/depth_anything_v2_vitl.pth` (1.3 GB)
+- `~/models/MolmoAct2/model-00001-of-00007.safetensors` ... `model-00007-of-00007.safetensors` (30.6 GB total)
+- `~/models/MolmoAct2/config.json` (model config)
+
+**Test Scene:**
+- `test_scene_warmed.jpg` (198 KB, 15-frame warmup)
+- Camera warmup validated: Frame 1 (222 KB, dark) → Frame 15 (198 KB, stable)
+- Link: http://192.168.86.25:7788/test_scene_warmed.jpg
+
+### Lessons Learned
+- **Camera warmup:** Stereo camera needs 10-15 frames for auto-exposure to stabilize
+- **ARM64 decord:** FFmpeg API incompatibility on ARM → skip, use imageio/opencv
+- **Download time:** 30.6 GB checkpoint took 4:49 min (106 MB/s avg)
+
+### Next Ticket
+→ TICKET-002: Stereo Depth Pipeline (calibration + SGBM tuning)
+
+**Completion timestamp:** 2026-05-10 22:07 CEST
