@@ -75,3 +75,28 @@ python scripts/generate.py \
 ## Next Ticket
 
 → TICKET-002: Stereo Depth Pipeline
+
+## Progress Update (21:48 UTC+2)
+
+### ✅ Completed
+- [x] PyTorch 2.11 installed
+- [x] Skip decord (ARM64 build issue, use imageio/opencv instead)
+- [x] MolmoAct package installed (`pip install -e .`)
+- [x] Depth-Anything-V2 downloaded (1.3 GB, ~/models/MolmoAct2/checkpoints/)
+- [x] Test import: `import olmo` works
+
+### 🔄 In Progress
+- [ ] MolmoAct-7B-D-0812 download (6% done, ETA ~10 min)
+  - 7 safetensors shards (~1.8 GB each)
+  - PID: 1765586
+  - Log: ~/models/MolmoAct2/download.log
+
+### 📸 Test Scene
+- [x] Initial stereo capture: test_scene_initial.jpg (225 KB)
+- Objects present: Colored blocks (Koen placed)
+- Link: http://192.168.86.25:7788/test_scene_initial.jpg
+
+### Next
+- Wait for checkpoint download
+- Test single-frame inference
+- Move to TICKET-002 (stereo depth pipeline)
